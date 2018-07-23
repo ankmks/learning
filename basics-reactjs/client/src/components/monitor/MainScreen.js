@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Calculator from "./Calculator";
 import ProductList from "../product/ProductList";
 
-class Monitor extends Component {
+class MainScreen extends Component {
 
     constructor(props) {
         super(props);
@@ -10,7 +10,7 @@ class Monitor extends Component {
         this.addOrder = this.addOrder.bind(this);
         this.delOrder = this.delOrder.bind(this);
     }
-
+//product come from mains screen.
     addOrder(product){
         let findOrder = this.state.orders.find(order => order.product.productId == product.productId);
         //do what matched.
@@ -24,14 +24,16 @@ class Monitor extends Component {
         this.setState({totalPrice: totalPrice, orders: this.state.orders});
     }
 
-    delOrder(product){
+     delOrder(product){
         let findOrder = this.state.orders.find(order => order.product.productId == product.productId);
         let resultOrder = this.state.orders.filter(order => order.product.productId != product.productId);
         const totalPrice = this.state.totalPrice - (findOrder.quantity * parseInt(findOrder.product.unitPrice));
         this.setState({totalPrice: totalPrice, orders: resultOrder});
     }
 
-
+    cancelOrder(){
+        this.setState({  });
+    }
 
     render(){
         return (
@@ -50,4 +52,4 @@ class Monitor extends Component {
 }
 
 
-export default Monitor;
+export default MainScreen;

@@ -1,0 +1,11 @@
+{
+    "products":[
+    { "id":1, "productId": "P001", "productName": "Salad", "unitPrice": "120", "thumbnail": "/images/product/1.jpg" },
+    { "id":2,"productId": "P002", "productName": "Fried Chicken", "unitPrice": "90", "thumbnail": "/images/product/2.jpg" },
+    { "id":3,"productId": "P003", "productName": "Bing Su", "unitPrice": "200", "thumbnail": "/images/product/3.jpg" },
+    { "id":4,"productId": "P004", "productName": "French Fired", "unitPrice": "140", "thumbnail": "/images/product/4.jpg" },
+    { "id":5,"productId": "P005", "productName": "Three Layers Cake", "unitPrice": "200", "thumbnail": "/images/product/5.jpg" },
+    { "id":6,"productId": "P006", "productName": "Healthy Food Coffee", "unitPrice": "140", "thumbnail": "/images/product/6.jpg" }
+    ],
+    "orders": []
+}

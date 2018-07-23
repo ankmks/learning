@@ -28,7 +28,7 @@ class ProductItem extends Component {
         return (
         <div className="col-md-3 col-sm-6">
             <img className="img-fluid img-thumbnail" src={thumbnail} />
-            <h5 className="mt-2">{productName}</h5>
+            <h6 className="mt-2">{productName}</h6>
             <p className="title text-right">{unitPrice} THB</p>
             <button className="btn btn-block btn-secondary title" 
             //value={unitPrice} onClick={(e) => this.doSomething(e)}
