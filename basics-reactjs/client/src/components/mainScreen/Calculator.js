@@ -4,7 +4,7 @@ import React, { Component } from "react";
 class Calculator extends Component {
 
     showOrders(orders){
-        if(!orders || orders.length == 0){
+        if(!orders || orders.length === 0){
             return <li className="text-right text-muted title">No items added.</li>
         } else {
             return orders.map(order => {

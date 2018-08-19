@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "Salad",
+      "unitPrice": "120",
+      "thumbnail": "/images/product/1.jpg"
+    },
+    {
+      "id": 2,
+      "productName": "Fried Chicken",
+      "unitPrice": "90",
+      "thumbnail": "/images/product/2.jpg"
+    },
+    {
+      "id": 3,
+      "productName": "Bing Su",
+      "unitPrice": "200",
+      "thumbnail": "/images/product/3.jpg"
+    },
+    {
+      "id": 4,
+      "productName": "French Fired",
+      "unitPrice": "140",
+      "thumbnail": "/images/product/4.jpg"
+    },
+    {
+      "id": 5,
+      "productName": "Three Layers Cake",
+      "unitPrice": "200",
+      "thumbnail": "/images/product/5.jpg"
+    }
+  ]
+}
