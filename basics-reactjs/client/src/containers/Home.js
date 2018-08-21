@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MainScreen from "../components/mainScreen/MainScreen";
-import axios from "axios";
+//import axios from "axios";
+import { connect } from "react-redux";
+import { productsFetch } from "../actions";
+
 class Home extends Component {
   constructor(props){
     super(props);
 
-    this.state = {products : ""}
+    //use store instead
+    //this.state = {products : ""}
   }
 
 
@@ -30,12 +34,14 @@ class Home extends Component {
     // .then(res => { this.setState({ products : res})});
 
 //3 axios
-axios.get("http://localhost:3011/products/").then(res => {
-      console.log("products  == ");
-      console.log(res.data);
-       this.setState({products : res.data}) 
-    });
+// axios.get("http://localhost:3011/products/").then(res => {
+//       console.log("products  == ");
+//       console.log(res.data);
+//        this.setState({products : res.data}) 
+//     });
 
+//use redux instead
+    this.props.productsFetch();
   }
 
   render() {
@@ -44,11 +50,19 @@ axios.get("http://localhost:3011/products/").then(res => {
         <Header />
         {/* <h2>การส่งข้อมูลไปที่ components สิ่งที่เรียกว่า props</h2> */}
         {/* <ProductItem productName="Iphone X" unitPrice="40500" /> */}
-        <MainScreen products={this.state.products} />
+        {/* <MainScreen products={this.state.products} /> */}
+        <MainScreen products={this.props.products} />
         <Footer  name="Chai" email="Yo@gmail.com" />
       </div>
     );
   }
 }
 
-export default Home;
+function mapStateToProps({ products }){//deconstructor style
+//function mapStateToProps(state){
+  //console.log(state);
+  //return { products : state.products }//products up there
+  return { products }//products up there
+}
+
+export default connect(mapStateToProps, { productsFetch })(Home);

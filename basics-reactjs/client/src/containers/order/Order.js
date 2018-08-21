@@ -3,35 +3,43 @@ import axios from "axios";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
+import { connect } from "react-redux";
+//import connect from "react-redux";
+import { ordersFetch, orderDelete } from "../../actions";
+
 class Order extends Component{
     constructor(props){
         super(props);
-        this.state = {orders:null}
+        //this.state = {orders:null}
     }
 
     componentDidMount(){
-        axios.get("http://localhost:3010/orders")
-        .then(
-            res => {
-                this.setState({orders: res.data});
-            }
-        );
+        // axios.get("http://localhost:3010/orders")
+        // .then(
+        //     res => {
+        //         this.setState({orders: res.data});
+        //     }
+        // );
+
+        this.props.ordersFetch();
     }
 
     delOrder(order){
-        console.log("deleting "+ order.id);
-        axios.delete("http://localhost:3010/orders/" + order.id).then(res => {
-                axios.get("http://localhost:3010/orders").then(
-                    res => {
-                        this.setState({orders : res.data});
-                    }
-                );     
-            });
+        //console.log("deleting "+ order.id);
+        // axios.delete("http://localhost:3010/orders/" + order.id).then(res => {
+        //         axios.get("http://localhost:3010/orders").then(
+        //             res => {
+        //                 this.setState({orders : res.data});
+        //             }
+        //         );     
+        //     });
+        this.props.orderDelete(order.id);
     }
 
 
     showOrders(){
-        return this.state.orders && this.state.orders.map(order => {
+        return this.props.orders && this.props.orders.map(order => {
+        //return this.state.orders && this.state.orders.map(order => {
                 const date = new Date(order.orderedDate);
                 return(
                     <div key={order.id} className="col-md-3">
@@ -41,7 +49,7 @@ class Order extends Component{
                         </p>
                         <h6>Date: {date.toLocaleDateString()} {date.toLocaleTimeString()}</h6>
                         <ul>
-                            //check first if there are data exist. && 
+                            {/* //check first if there are data exist. &&  */}
                             {order.orders && order.orders.map(record => {
                                 return (
                                     <li 
@@ -75,4 +83,8 @@ class Order extends Component{
 
 }
 
-export default Order;
+function mapStateToProps({ orders }){
+    return { orders};
+}
+
+export default connect(mapStateToProps, { ordersFetch, orderDelete } )(Order);

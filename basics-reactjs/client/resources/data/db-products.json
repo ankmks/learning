@@ -26,9 +26,17 @@
     },
     {
       "id": 5,
+      "productId": "P005",
       "productName": "Three Layers Cake",
       "unitPrice": "200",
       "thumbnail": "/images/product/5.jpg"
+    },
+    {
+      "id": 6,
+      "productId": "P006",
+      "productName": "Healthy Food Coffee",
+      "unitPrice": "140",
+      "thumbnail": "/images/product/6.jpg"
     }
   ]
 }

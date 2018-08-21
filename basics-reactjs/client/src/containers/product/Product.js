@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import axios from "axios";
+//import axios from "axios";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ProductList from "../../components/product/ProductList";
 
 import { withRouter } from "react-router-dom";
 
+import { connect } from "react-redux";
+import { productsFetch, productDelete } from "../../actions";
+
 
 class Product extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { products : null };
+        //this.state = { products : null };
+
         this.delProduct = this.delProduct.bind(this);
         this.editProduct = this.editProduct.bind(this);
         
@@ -19,11 +23,15 @@ class Product extends Component {
     }
 
     componentDidMount(){
-        axios.get("http://localhost:3011/products/")
-        .then(
-            res => {
-            this.setState({products: res.data});
-        });
+
+        // axios.get("http://localhost:3011/products/")
+        // .then(
+        //     res => {
+        //     this.setState({products: res.data});
+        // });
+
+        //redux
+        this.props.productsFetch();
     }
 
 
@@ -54,14 +62,17 @@ class Product extends Component {
     // }
 
         delProduct(product){
-        console.log("deleting "+ product.id);
-        axios.delete("http://localhost:3011/products/" + product.id).then(res => {
-                axios.get("http://localhost:3011/products/").then(
-                    res => {
-                        this.setState({products : res.data});
-                    }
-                );     
-            });
+            //this works!!
+        // console.log("deleting "+ product.id);
+        // axios.delete("http://localhost:3011/products/" + product.id).then(res => {
+        //         axios.get("http://localhost:3011/products/").then(
+        //             res => {
+        //                 this.setState({products : res.data});
+        //             }
+        //         );     
+        //     });
+
+        this.props.productDelete(product.id);
     }
 
     consoleTest(){
@@ -84,7 +95,9 @@ class Product extends Component {
                                 >Add</button>
                             </div>                        
                         </div>
-                        <ProductList products={this.state.products}
+                        <ProductList 
+                            //products={this.state.products}
+                            products={this.props.products}
                             onDelProduct={this.delProduct}
                             onEditProduct={this.editProduct}
 
@@ -97,5 +110,9 @@ class Product extends Component {
     }
 }
 
+function mapStateToProps({products}) {
+    return { products };
+}
 
-export default withRouter(Product);
+
+export default withRouter(connect(mapStateToProps, {productsFetch, productDelete })(Product));
