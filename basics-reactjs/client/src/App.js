@@ -8,6 +8,8 @@ import Products from "./containers/product/Product";
 import Index from "./containers/Index";
 import NotFound from "./containers/error/NotFound";
 
+import ProductEdit from "./containers/product/ProductEdit";
+
 class App extends Component {
 
   // renderRouter(){
@@ -29,6 +31,9 @@ class App extends Component {
           <Route path = "/orders" component={Order} />
           <Route exact path = "/products" component={Products} />
           <Route path ="/index" component={Index} />
+
+          <Route exact path = "/products/add" component={ProductEdit} />
+          <Route exact path = "/products/edit/:id" component={ProductEdit} />
 
           <Route component={NotFound}/>
           

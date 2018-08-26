@@ -9,12 +9,12 @@
     {
       "id": 2,
       "productName": "Fried Chicken",
-      "unitPrice": "90",
+      "unitPrice": "10",
       "thumbnail": "/images/product/2.jpg"
     },
     {
       "id": 3,
-      "productName": "Bing Su",
+      "productName": "Bingsu",
       "unitPrice": "200",
       "thumbnail": "/images/product/3.jpg"
     },
@@ -37,6 +37,12 @@
       "productName": "Healthy Food Coffee",
       "unitPrice": "140",
       "thumbnail": "/images/product/6.jpg"
+    },
+    {
+      "productName": "Noodle",
+      "unitPrice": "300",
+      "thumbnail": "/images/product/2.jpg",
+      "id": 7
     }
   ]
 }

@@ -11,7 +11,8 @@ class ProductList extends Component {
 
 
             //map each product passed via props and render  the html tag [ProductItem].
-            return this.props.products && this.props.products.map(product =>  
+            return this.props.products && 
+            this.props.products.map(product =>  (
             <ProductItem key={product.productId}
                //{...product} 
                product={product} 
@@ -21,7 +22,7 @@ class ProductList extends Component {
 
                    consoleTest={this.props.consoleTest}
                />
-
+            )
             )
         }
     }

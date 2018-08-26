@@ -95,14 +95,20 @@ class Product extends Component {
                                 >Add</button>
                             </div>                        
                         </div>
-                        <ProductList 
-                            //products={this.state.products}
-                            products={this.props.products}
-                            onDelProduct={this.delProduct}
-                            onEditProduct={this.editProduct}
 
-                            consoleTest={this.consoleTest}
-                        />
+
+                        {this.props.products && Array.isArray(this.props.products) && 
+
+                           ( <ProductList 
+                                //products={this.state.products}
+                                products={this.props.products}
+                                onDelProduct={this.delProduct}
+                                onEditProduct={this.editProduct}
+
+                                consoleTest={this.consoleTest}
+                            />
+                            )
+                        }
                     </div>
                 <Footer />
             </div>
